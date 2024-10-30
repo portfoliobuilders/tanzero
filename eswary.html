@@ -54,49 +54,78 @@
         <!--  Header & Menu  -->
         <!--  class: fixed, bg, white, transparent  -->
         <header id="header" style="background-color: #d3d3d3; padding: 2px;">
-            <div class="wrap-header--padding-md" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="wrap-header--padding-md" style="display: flex; justify-content: space-between; align-items: center; position: relative;">
                 <nav class="main-navigation" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
                     <!-- Header Logo -->
                     <div id="logo" style="display: flex; align-items: center;">
                         <a href="/" style="display: flex; align-items: center;">
                             <picture>
-                                <source srcset="TANZERO LOGO B - Black Text with Transperant Background.png 2x, TANZERO LOGO B - Black Text with Transperant Background.png 1x" type="image/png" />
-                                <img src="TANZERO LOGO B - Black Text with Transperant Background.png" alt="Logo" width="120" height="auto" style="display: block;">
+                                <source srcset="TANZERO LOGO B - Black Text with Transparent Background.png 2x, TANZERO LOGO B - Black Text with Transparent Background.png 1x" type="image/png" />
+                                <img src="assets/tanzero/TANZERO LOGO B - Black Text with Transperant Background.png" alt="Logo" width="120" height="auto" style="display: block;">
                             </picture>
                         </a>
                     </div>
-                    <!-- END Header Logo -->
         
-                    <!-- Menu -->
-                    <div id="main-menu" aria-expanded="false" role="navigation" style="display: flex; justify-content: flex-end; align-items: center; flex-grow: 1;">
+                    <!-- Main Menu for Desktop -->
+                    <div id="main-menu" class="desktop-menu" style="flex-grow: 1; display: flex; justify-content: flex-end; align-items: center;">
                         <ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
                             <li><a href="index.html" class="active" style="color: rgb(0, 0, 0);">Home</a></li>
                             <li><a href="about.html" style="color: rgb(0, 0, 0);">About</a></li>
                             <li><a href="plans.html" style="color: rgb(0, 0, 0);">Companies</a></li>
-
-                            <!-- // <li><a href="contact.html" style="color: rgb(0, 0, 0);">Contact</a></li> -->
+                            <li><a href="contact.html" style="color: rgb(0, 0, 0);">Contact</a></li>
+                            <br>
                         </ul>
                     </div>
-                    <!-- END Menu -->
         
-                    <!-- Menu Call to Action -->
-                    <div class="cta" style="flex-shrink: 0; margin-left: 20px;"> <!-- Added margin-left -->
-                        <a href="#" class="btn--medium--round--border">Contact US</a>
-                    </div>
-                    <!-- END Menu Call to Action -->
+                    <!-- Container for Connect Us Button and Hamburger Menu -->
+                    <div class="menu-and-button" style="display: flex; align-items: center; gap: 10px;">
+                        <!-- Contact Button -->
+                        <div class="cta" style="flex-shrink: 0;">
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Info@tanzero.co.uk" class="btn--medium--round--border" style="height: 50px; display: flex; align-items: center; justify-content: center;">Connect Us</a>
+                        </div>
         
-                    <!-- Hamburger Menu for Mobile -->
-                    <div class="menu-button" data-visible="lg" style="display: none;">
-                        <div class="icons">
-                            <span class="bar bar-1"></span>
-                            <span class="bar bar-2"></span>
-                            <span class="bar bar-3"></span>
+                        <!-- Hamburger Menu for Mobile -->
+                        <div class="hamburger-menu" style="display: none; flex-direction: column;">
+                            <details style="cursor: pointer;">
+                                <summary style="list-style: none; padding: 10px; height: 50px; display: flex; align-items: center; font-size: 24px;">
+                                    &#9776; <!-- Hamburger icon -->
+                                </summary>
+                                <ul style="list-style: none; padding: 0; margin: 0; background-color: #d3d3d3; position: absolute; right: 0; z-index: 1;">
+                                    <li style="padding: 10px;"><a href="index.html" style="color: rgb(0, 0, 0);">Home</a></li>
+                                    <li style="padding: 10px;"><a href="about.html" style="color: rgb(0, 0, 0);">About</a></li>
+                                    <li style="padding: 10px;"><a href="plans.html" style="color: rgb(0, 0, 0);">Companies</a></li>
+                                    <li style="padding: 10px;"><a href="contact.html" style="color: rgb(0, 0, 0);">Contact</a></li>
+                                </ul>
+                            </details>
                         </div>
                     </div>
-                    <!-- END: Hamburger Menu -->
                 </nav>
             </div>
+        
+            <!-- Responsive Design: Hide desktop menu on mobile -->
+            <script>
+                // Basic script to show/hide desktop menu based on screen size
+                function checkScreenSize() {
+                    var desktopMenu = document.getElementById('main-menu');
+                    var hamburgerMenu = document.querySelector('.hamburger-menu');
+                    if (window.innerWidth < 768) {
+                        desktopMenu.style.display = 'none'; // Hide desktop menu on mobile
+                        hamburgerMenu.style.display = 'flex'; // Show hamburger menu on mobile
+                    } else {
+                        desktopMenu.style.display = 'flex'; // Show desktop menu on larger screens
+                        hamburgerMenu.style.display = 'none'; // Hide hamburger menu on larger screens
+                    }
+                }
+        
+                // Initial check
+                checkScreenSize();
+        
+                // Add event listener for window resize
+                window.addEventListener('resize', checkScreenSize);
+            </script>
         </header>
+        
+        
         <!--  END Header & Menu  -->
 
         <!--  Page Header  -->
@@ -107,8 +136,8 @@
                     <div class="col-12">
                         <div class="sectiontitle-element--center">
                             <span data-aos="fade-up" class="toptitle"></span>
-                            <h1 data-aos="fade-up" data-aos-delay="100" class="big">Eswary Herbals</h1>
-                            <p data-aos="fade-up" data-aos-delay="200">Premium cosmetic brand with a focus on 100% organic ingredients, offering the highest-quality hair oil, eyeliner, serums, face wash, and more. Committed to purity and effectiveness,  sets a new standard in natural beauty.</p>
+                            <h1 data-aos="fade-up" data-aos-delay="100" class="big">Most Tasty</h1>
+                            <p data-aos="fade-up" data-aos-delay="200">A sub-brand that revolutionizes culinary experience with authentic Indian food products. We specialize in high-quality flatbreads and other delicacies crafted with customized</p>
                         </div>
                     </div>
                 </div>
@@ -122,10 +151,9 @@
                 <div class="container">
                     <div data-aos="zoom-in" data-aos-duration="1000" class="row">
                         <div class="col-12">
-                            <div class="wrapimage-element" style="max-width: 700px; margin: 0 auto;">
-                                <img data-unveil src="#" data-src="assets/tanzero/3 eswary .png" data-src-retina="assets/tanzero/3 eswary .png" alt="Image Description" style="width: 100%; height: auto;">
+                            <div class="wrapimage-element">
+                                <img data-unveil src="#" data-src="assets/tanzero/1 Most Tasty .png" data-src-retina="assets/tanzero/1 Most Tasty .png" alt="">
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -138,7 +166,7 @@
                         <div class="col-12">
                             <div class="sectiontitle-element">
                                 <h2>What we offer</h2>
-                                <p>Founded in 2019 and revitalized in 2023 with an investment from Tanzero Enterprises, Eswary Herbal is an emerging force in the cosmetic industry, primarily based in Kerala. Known for its unwavering commitment to purity and quality, the brand sets a new benchmark for organic cosmetic products. With meticulous research and innovation, Eswary Herbal has surpassed all microbiological tests, ensuring that each product embodies the essence of natural beauty and safety. As a pre-revenue business, Eswary Herbal is diligently finalizing the last stages of product testing to make its highly-anticipated market debut.</p>
+                                <p>Our product line features a wide array of Indian food products, including our signature flatbreads that are renowned for their authentic taste and texture. We use only the finest ingredients and adhere to stringent quality control measures to ensure that every product meets our high standards of excellence.</p>
                             </div>
                         </div>
                     </div>
@@ -146,7 +174,22 @@
             </section>
             <!--  END Text  -->
             <!--  Images  -->
-         
+            <section data-padding="bottom">
+                <div class="container">
+                    <div class="row">
+                        <div data-aos="fade-up" class="col-12 col-md-6">
+                            <div class="wrapimage-element--square">
+                                <img data-unveil src="#" data-src="assets/img/project-gallery-1.jpg" data-src-retina="assets/img/project-gallery-1@2x.jpg" alt="">
+                            </div>
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="400" class="col-12 col-md-6">
+                            <div class="wrapimage-element--square">
+                                <img data-unveil src="#" data-src="assets/img/project-gallery-2.jpg" data-src-retina="assets/img/project-gallery-2@2x.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!--  END Images  -->
             <!--  Text  -->
             <section data-padding="bottom">
@@ -154,8 +197,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="sectiontitle-element">
-                                <h2 data-aos="fade-up">Our Services</h2>
-                                <p data-aos="fade-up">The brand’s flagship offering, the Eswary Herbal Hair Oil, is a testament to its dedication to excellence. Crafted with 100% organic ingredients, this hair oil boasts the highest quality standards, making it a superior choice for consumers seeking natural and effective hair care solutions. Beyond hair oil, Eswary Herbal offers a diverse range of products, including eyeliner, hair serum, face wash, and various other cosmetic essentials. Each product reflects the brand’s ethos of harnessing the power of nature to promote wellness and beauty. </p>
+                                <h2 data-aos="fade-up">Innovation and Tradition</h2>
+                                <p data-aos="fade-up">While we remain true to the traditional flavors of India, we are also at the forefront of innovation in food manufacturing. Our team of experts is constantly exploring new techniques and ingredients to enhance the taste and nutritional value of our products. </p>
                             </div>
                         </div>
                     </div>
@@ -169,17 +212,15 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="sectiontitle-element">
-                                <h2 data-aos="fade-up">Why Choose Eswary Herbal?</h2>
-                                <p data-aos="fade-up">As Eswary Herbal prepares to launch under the stewardship of Tanzero Enterprises, it stands poised to make a significant impact on the organic cosmetics landscape. This partnership represents a fusion of expertise and passion for delivering high-quality, eco-friendly products that resonate with today’s conscientious consumers. 
+                                <h2 data-aos="fade-up">Why Choose Most Tasty?</h2>
+                                <p data-aos="fade-up" data-aos-delay="200">Choosing Most Tasty means choosing authenticity, quality, and a taste of India’s rich culinary heritage. Whether you’re looking for the perfect flatbread to accompany your meal or exploring new flavors, Most Tasty offers products that are sure to delight your taste buds.
 
-                                    Embrace the future of beauty with Eswary Herbal—where nature meets innovation.</p>
+                                    Experience the taste of India with Most Tasty – where every bite is a celebration of flavor and tradition.</p>
                             </div>
                         </div>
                     </div>
-                 
                 </div>
             </section>
-            
             <!--  END Text  -->
             <!--  Link Box  -->
             <section data-aos="fade" data-padding="xstop">
@@ -192,7 +233,7 @@
                                    
                                 </div>
                                 <div class="cta">
-                                    <a href="#" class="btn--big--border--round--light--arrow" target="_self">Contact us</a>
+                                    <a href="https://wa.me/447425497416" target="_blank" class="btn--big--border--round--light--arrow" target="_self">Contact us</a>
                                 </div>
                             </div>
                         </div>
